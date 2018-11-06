@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[9]:
+# In[15]:
 
 
 # Logistic function implementation
@@ -9,29 +9,24 @@ def logis(r,x):
     return r*x*(1-x)
 
 
-# In[10]:
+# In[20]:
 
 
 # Iterate the function for a given r
-# Allow to skip steps
+# Return an array of results
 def logis_map(seed, r, n_iter, n_skip=0):
+    values = []
     x = logis(r,seed);
     for i in range(n_iter+n_skip-1):
         x = logis(r,x);
         if i >= n_skip:
-            print(x)
+            values.append(x);
+    return values
 
 
-# In[12]:
+# In[21]:
 
 
-logis_map(0.2, 3.05, 10, 1000)
-
-
-# In[14]:
-
-
-import sys
-sys.version
-sys.version_info
+v=logis_map(0.2, 3.05, 10, 1000)
+print(v)
 
