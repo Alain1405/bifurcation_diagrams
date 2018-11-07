@@ -11773,7 +11773,20 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Logistic function implementation</span>
@@ -11788,11 +11801,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Iterate the function for a given r</span>
-<span class="c1"># Return an array of results</span>
 <span class="k">def</span> <span class="nf">logis_map</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">n_skip</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">logis</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">seed</span><span class="p">);</span>
@@ -11810,32 +11822,48 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">v</span><span class="o">=</span><span class="n">logis_map</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.05</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test for seed of 0.2, growth rate of 3.05 returning 10 iterations after skipping 1000</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">logis_map</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.05</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create the bifurcation diagram</span>
+<span class="k">def</span> <span class="nf">bifurcation_diagram</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">n_skip</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting with x0 seed </span><span class="si">{0}</span><span class="s2">, skip plotting first </span><span class="si">{1}</span><span class="s2"> iterations, then plot next </span><span class="si">{2}</span><span class="s2"> iterations.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">n_skip</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">));</span>
+    <span class="n">r_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">step</span><span class="p">))</span>
+    <span class="n">bif_diagram</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">r_range</span><span class="p">:</span>
+        <span class="n">bif_diagram</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logis_map</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">n_skip</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">bif_diagram</span>
+</pre></div>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[0.7377049180327874, 0.5901639344262287, 0.7377049180327874, 0.5901639344262287, 0.7377049180327874, 0.5901639344262287, 0.7377049180327874, 0.5901639344262287, 0.7377049180327874]
-</pre>
 </div>
 </div>
+</div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">diagram</span> <span class="o">=</span> <span class="n">bifurcation_diagram</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diagram</span><span class="p">)</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 

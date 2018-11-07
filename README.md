@@ -7,6 +7,7 @@ Following the online course "[Introduction to Dynamical Systems and Chaos](https
 Tested on OsX:
 - Python 3.65
 - [Jupyter Notebook](http://jupyter.org/)
+- Numpy
 
 ### Setup
 
