@@ -27,4 +27,4 @@ A browser window will open. Select "Bifurcation diagram.ipynb" to run the notebo
 
 ### Preview
 
-![Notbeook preview](/Bifurcation_diagram)
+![Notebeook preview](/Bifurcation_diagram.png)
